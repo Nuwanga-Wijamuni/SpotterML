@@ -1,0 +1,49 @@
+{
+  "source": "Saved July-August-September experiments from notebooks/02_model_experiments.ipynb; quick runs do not recompute these folds.",
+  "development_sha256": "892980fd20bac7ac0ca4ec31d3981fca48d52dec88e4f02642ab955f1efb40fe",
+  "data_code_sha256": "59fb7fdb438ec65663f15bc2b5efb99d7c7120c11ac09549bd93adce3ac85c51",
+  "features_code_sha256": "6ef9ad8c63df10c2843b9ea2c93765eb5c921725a0fa704f2dcc0bed19be9a47",
+  "comparison_sha256": "02a052e86086064e37819a8a8b4385e2331ffdf5c4b521945995a4a2a834320a",
+  "versions": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.14.1",
+    "catboost": "1.2.10",
+    "matplotlib": "3.10.9"
+  },
+  "models": {
+    "main": {
+      "name": "catboost_full_per_mile",
+      "algorithm": "catboost",
+      "target_space": "rate_per_mile",
+      "config": {
+        "include_market_index": true,
+        "include_quote_signal": true,
+        "include_geography": false
+      },
+      "group": "main"
+    },
+    "december_scenario": {
+      "name": "catboost_scenario_per_mile",
+      "algorithm": "catboost",
+      "target_space": "rate_per_mile",
+      "config": {
+        "include_market_index": false,
+        "include_quote_signal": false,
+        "include_geography": false
+      },
+      "group": "scenario"
+    }
+  },
+  "hyperparameters": {
+    "seed": 42,
+    "catboost_iterations": 300,
+    "catboost_depth": 6,
+    "catboost_learning_rate": 0.06,
+    "catboost_threads": 2,
+    "catboost_l2_leaf_reg": 3.0,
+    "ridge_alpha": 10.0,
+    "minimum_total_rate": 0.01
+  }
+}

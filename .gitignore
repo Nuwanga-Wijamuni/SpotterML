@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+models/
+outputs/
+tmp/
+# Keep the supplied raw inputs local; reviewers use the assessment data.
+train-test.csv
+train_test.csv
+validation.csv
+validation-predictions-template.csv
+validation_predictions_template.csv
+december-chart-inputs.csv
+december_chart_inputs.csv
+data/*.csv
+freight-rate-ml-assessment.pdf
+notebooks/*.html

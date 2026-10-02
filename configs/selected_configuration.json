@@ -1,0 +1,52 @@
+{
+  "selection_metric": "pooled_mae",
+  "tie_breaker": "pooled_rmse",
+  "main": {
+    "name": "catboost_full_per_mile",
+    "algorithm": "catboost",
+    "target_space": "rate_per_mile",
+    "config": {
+      "include_market_index": true,
+      "include_quote_signal": true,
+      "include_geography": false
+    },
+    "group": "main"
+  },
+  "december_scenario": {
+    "name": "catboost_scenario_per_mile",
+    "algorithm": "catboost",
+    "target_space": "rate_per_mile",
+    "config": {
+      "include_market_index": false,
+      "include_quote_signal": false,
+      "include_geography": false
+    },
+    "group": "scenario"
+  },
+  "hyperparameters": {
+    "seed": 42,
+    "catboost_iterations": 300,
+    "catboost_depth": 6,
+    "catboost_learning_rate": 0.06,
+    "catboost_threads": 2,
+    "catboost_l2_leaf_reg": 3.0,
+    "ridge_alpha": 10.0,
+    "minimum_total_rate": 0.01
+  },
+  "holdout_start": "2025-10-01",
+  "selection_folds": [
+    "2025-07",
+    "2025-08",
+    "2025-09"
+  ],
+  "versions": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.14.1",
+    "catboost": "1.2.10",
+    "matplotlib": "3.10.9"
+  },
+  "signal_availability": "Confirm quote_signal and market_index availability before final model choice.",
+  "final_holdout_evaluated": false
+}
